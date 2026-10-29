@@ -86,6 +86,9 @@ tbody tr:last-child td{border-bottom:0}
 .ask{margin:0;color:var(--muted);font-size:14px;max-width:62ch}
 .ask-l{font-family:var(--f-display);font-weight:600;font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink);background:var(--avatar);border-radius:4px;padding:1px 6px;margin-right:4px}
 .empty{padding:20px 16px;color:var(--muted)}
+.rk-wrap{position:relative;width:64px}
+.rk{position:absolute;top:-6px;left:-6px;min-width:26px;height:26px;padding:0 6px;border-radius:13px;display:grid;place-items:center;font-family:var(--f-display);font-weight:700;font-size:13px;font-variant-numeric:tabular-nums;background:var(--accent);color:var(--surface);border:2px solid var(--surface)}
+.sec-top .tbl{border-color:var(--accent);box-shadow:0 0 0 1px var(--accent-soft)}
 footer{margin-top:36px;color:var(--muted);font-size:13.5px;max-width:72ch;display:grid;gap:6px}
 footer p{margin:0}
 @media (max-width:720px){
@@ -108,11 +111,12 @@ footer p{margin:0}
 <header>
   <div class="eyebrow">Hyphenate Series A party</div>
   <h1>Hyphenate Party Playbook</h1>
-  <p class="lede">Who to find, what they do, and the line to open with. Prospects work at companies that could buy Hyphenate. Partners can open doors to many of those companies. The ten top-priority conversations are on a separate list and are not repeated here.</p>
+  <p class="lede">Who to find, what they do, and the line to open with. The top 10 come first, in priority order. Prospects work at companies that could buy Hyphenate. Partners can open doors to many of those companies.</p>
   <ul class="stats">
+    <li><b>10</b>top priority</li>
     <li><b>17</b>prospects</li>
     <li><b>21</b>partners</li>
-    <li><b>29</b>of 38 with a photo</li>
+    <li><b>34</b>of 48 with a photo</li>
   </ul>
 </header>
 
@@ -120,10 +124,71 @@ footer p{margin:0}
   <div class="search"><label for="q" class="sr" hidden>Search people</label><input id="q" type="search" placeholder="Search name, company or topic" autocomplete="off" aria-label="Search name, company or topic"></div>
   <div class="seg" role="group" aria-label="Show">
     <button type="button" id="f-all" data-f="all" aria-pressed="true">All</button>
+    <button type="button" id="f-t" data-f="t" aria-pressed="false">Top 10</button>
     <button type="button" id="f-p" data-f="p" aria-pressed="false">Prospects</button>
     <button type="button" id="f-q" data-f="q" aria-pressed="false">Partners</button>
   </div>
 </div>
+
+<section id="top" data-g="t" class="sec-top">
+  <div class="sec-h"><h2>Top 10 conversations</h2><span class="count" data-count>10 people</span></div>
+  <p class="sec-d">Find these people first. The number is the priority order: buyers at ICP companies and the partners who open the most doors.</p>
+  <div class="tbl"><table>
+    <thead><tr><th scope="col"><span hidden>Photo</span></th><th scope="col">Person</th><th scope="col">What to say</th></tr></thead>
+    <tbody>
+<tr data-s="steve sidhu clay controller icp company how many days does your close take today, and what eats them? hyphenate&#x27;s agents match payouts and invoices to cash and run reconciliations on top of your current erp. he&#x27;s the exact buyer. hibid cut its close from 3 weeks to 5 days, so ask whether he&#x27;d take a demo.">
+<td class="c-ph"><div class="rk-wrap"><span class="av av-none" role="img" aria-label="No public photo found for Steve Sidhu">SS</span><span class="rk" aria-label="Priority 1">1</span></div></td>
+<td class="c-who"><div class="nm"><a href="https://www.linkedin.com/in/steve-sidhu-23a2131b" target="_blank" rel="noopener">Steve Sidhu</a></div><div class="co">Clay</div><div class="rl">Controller</div><span class="tag t-icp">ICP company</span></td>
+<td class="c-say"><p class="say">&ldquo;How many days does your close take today, and what eats them? Hyphenate&#x27;s agents match payouts and invoices to cash and run reconciliations on top of your current ERP.&rdquo;</p><p class="ask"><span class="ask-l">Ask</span> He&#x27;s the exact buyer. HiBid cut its close from 3 weeks to 5 days, so ask whether he&#x27;d take a demo.</p></td>
+</tr>
+<tr data-s="don muir arc co-founder and ceo icp company treasury agents give daily cash positioning and automatic bank reconciliations. one customer shrank a 20-person cash team to 5. he decides. also pitch a partnership, since arc&#x27;s startup customers are future hyphenate customers.">
+<td class="c-ph"><div class="rk-wrap"><img class="av" src="photos/don-muir.jpg" alt="Photo of Don Muir" width="64" height="64" loading="lazy"><span class="rk" aria-label="Priority 2">2</span></div></td>
+<td class="c-who"><div class="nm">Don Muir</div><div class="co">Arc</div><div class="rl">Co-founder and CEO</div><span class="tag t-icp">ICP company</span></td>
+<td class="c-say"><p class="say">&ldquo;Treasury agents give daily cash positioning and automatic bank reconciliations. One customer shrank a 20-person cash team to 5.&rdquo;</p><p class="ask"><span class="ask-l">Ask</span> He decides. Also pitch a partnership, since Arc&#x27;s startup customers are future Hyphenate customers.</p></td>
+</tr>
+<tr data-s="clayton strickler perplexity gtm lead, financial services icp company consumer subscriptions, enterprise seats and api usage billed at once make revenue reconciliation harder every month. perplexity already backs hyphenate. ask for an intro to the controller or revenue accounting team.">
+<td class="c-ph"><div class="rk-wrap"><span class="av av-none" role="img" aria-label="No public photo found for Clayton Strickler">CS</span><span class="rk" aria-label="Priority 3">3</span></div></td>
+<td class="c-who"><div class="nm"><a href="https://www.linkedin.com/in/claytonstrickler" target="_blank" rel="noopener">Clayton Strickler</a></div><div class="co">Perplexity</div><div class="rl">GTM lead, financial services</div><span class="tag t-icp">ICP company</span></td>
+<td class="c-say"><p class="say">&ldquo;Consumer subscriptions, enterprise seats and API usage billed at once make revenue reconciliation harder every month.&rdquo;</p><p class="ask"><span class="ask-l">Ask</span> Perplexity already backs Hyphenate. Ask for an intro to the controller or revenue accounting team.</p></td>
+</tr>
+<tr data-s="constantin de rosen contentsquare corporate development icp company every acquisition adds entities and a different finance stack. dura software closes 7 days faster and cut back-office spend by 70%. ask how long post-deal finance integration takes today.">
+<td class="c-ph"><div class="rk-wrap"><img class="av" src="photos/constantin-de-rosen.jpg" alt="Photo of Constantin de Rosen" width="64" height="64" loading="lazy"><span class="rk" aria-label="Priority 4">4</span></div></td>
+<td class="c-who"><div class="nm"><a href="https://www.linkedin.com/in/constantinderosen" target="_blank" rel="noopener">Constantin de Rosen</a></div><div class="co">Contentsquare</div><div class="rl">Corporate development</div><span class="tag t-icp">ICP company</span></td>
+<td class="c-say"><p class="say">&ldquo;Every acquisition adds entities and a different finance stack. Dura Software closes 7 days faster and cut back-office spend by 70%.&rdquo;</p><p class="ask"><span class="ask-l">Ask</span> Ask how long post-deal finance integration takes today.</p></td>
+</tr>
+<tr data-s="sean gura psg equity vp, growth equity private equity your buy-and-build roll-ups each add entities to close. dura software&#x27;s roll-up closes 7 days faster with hyphenate. ask for the operating partner, and which portfolio companies are mid-integration.">
+<td class="c-ph"><div class="rk-wrap"><span class="av av-none" role="img" aria-label="No public photo found for Sean Gura">SG</span><span class="rk" aria-label="Priority 5">5</span></div></td>
+<td class="c-who"><div class="nm"><a href="https://www.linkedin.com/in/seangura" target="_blank" rel="noopener">Sean Gura</a></div><div class="co">PSG Equity</div><div class="rl">VP, growth equity</div><span class="tag t-pe">Private equity</span></td>
+<td class="c-say"><p class="say">&ldquo;Your buy-and-build roll-ups each add entities to close. Dura Software&#x27;s roll-up closes 7 days faster with Hyphenate.&rdquo;</p><p class="ask"><span class="ask-l">Ask</span> Ask for the operating partner, and which portfolio companies are mid-integration.</p></td>
+</tr>
+<tr data-s="namrata jumani radian capital associate, growth equity private equity your profitable b2b software companies run lean finance teams. agents let them close faster without new hires. ask which portfolio cfos to meet first.">
+<td class="c-ph"><div class="rk-wrap"><img class="av" src="photos/namrata-jumani.jpg" alt="Photo of Namrata Jumani" width="64" height="64" loading="lazy"><span class="rk" aria-label="Priority 6">6</span></div></td>
+<td class="c-who"><div class="nm">Namrata Jumani</div><div class="co">Radian Capital</div><div class="rl">Associate, growth equity</div><span class="tag t-pe">Private equity</span></td>
+<td class="c-say"><p class="say">&ldquo;Your profitable B2B software companies run lean finance teams. Agents let them close faster without new hires.&rdquo;</p><p class="ask"><span class="ask-l">Ask</span> Ask which portfolio CFOs to meet first.</p></td>
+</tr>
+<tr data-s="nandini agarwal counterpart ventures senior associate venture capital you&#x27;ve worked a controller&#x27;s close at goldman sachs, so you know where the hours go. ask which b2b saas portfolio companies feel close pain.">
+<td class="c-ph"><div class="rk-wrap"><span class="av av-none" role="img" aria-label="No public photo found for Nandini Agarwal">NA</span><span class="rk" aria-label="Priority 7">7</span></div></td>
+<td class="c-who"><div class="nm">Nandini Agarwal</div><div class="co">Counterpart Ventures</div><div class="rl">Senior associate</div><span class="tag t-vc">Venture capital</span></td>
+<td class="c-say"><p class="say">&ldquo;You&#x27;ve worked a controller&#x27;s close at Goldman Sachs, so you know where the hours go.&rdquo;</p><p class="ask"><span class="ask-l">Ask</span> Ask which B2B SaaS portfolio companies feel close pain.</p></td>
+</tr>
+<tr data-s="sara rona silicon valley bank managing director, global gateway banking partner svb banks thousands of venture-backed finance teams, and companies expanding to the us need clean multi-entity books. ask about a referral partnership and a bank-feed integration.">
+<td class="c-ph"><div class="rk-wrap"><span class="av av-none" role="img" aria-label="No public photo found for Sara Rona">SR</span><span class="rk" aria-label="Priority 8">8</span></div></td>
+<td class="c-who"><div class="nm">Sara Rona</div><div class="co">Silicon Valley Bank</div><div class="rl">Managing director, Global Gateway</div><span class="tag t-bank">Banking partner</span></td>
+<td class="c-say"><p class="say">&ldquo;SVB banks thousands of venture-backed finance teams, and companies expanding to the US need clean multi-entity books.&rdquo;</p><p class="ask"><span class="ask-l">Ask</span> Ask about a referral partnership and a bank-feed integration.</p></td>
+</tr>
+<tr data-s="lexi linebarger american express manager, ap automation sales platform partner you sell ap automation to netsuite teams, and hyphenate&#x27;s agents cover the rest of their close. amex already integrates with hyphenate. explore co-selling into her accounts.">
+<td class="c-ph"><div class="rk-wrap"><img class="av" src="photos/lexi-linebarger.jpg" alt="Photo of Lexi Linebarger" width="64" height="64" loading="lazy"><span class="rk" aria-label="Priority 9">9</span></div></td>
+<td class="c-who"><div class="nm"><a href="https://www.linkedin.com/in/lexilinebarger" target="_blank" rel="noopener">Lexi Linebarger</a></div><div class="co">American Express</div><div class="rl">Manager, AP automation sales</div><span class="tag t-platform">Platform partner</span></td>
+<td class="c-say"><p class="say">&ldquo;You sell AP automation to NetSuite teams, and Hyphenate&#x27;s agents cover the rest of their close.&rdquo;</p><p class="ask"><span class="ask-l">Ask</span> AmEx already integrates with Hyphenate. Explore co-selling into her accounts.</p></td>
+</tr>
+<tr data-s="alex pischalnikov mn8 energy senior director, strategy and investments icp company every project entity has its own bank accounts, offtaker invoices and investor reporting. hyphenate runs reconciliations and intercompany across hundreds of entities. ask for an intro to mn8&#x27;s controller.">
+<td class="c-ph"><div class="rk-wrap"><img class="av" src="photos/alex-pischalnikov.jpg" alt="Photo of Alex Pischalnikov" width="64" height="64" loading="lazy"><span class="rk" aria-label="Priority 10">10</span></div></td>
+<td class="c-who"><div class="nm">Alex Pischalnikov</div><div class="co">MN8 Energy</div><div class="rl">Senior director, strategy and investments</div><span class="tag t-icp">ICP company</span></td>
+<td class="c-say"><p class="say">&ldquo;Every project entity has its own bank accounts, offtaker invoices and investor reporting. Hyphenate runs reconciliations and intercompany across hundreds of entities.&rdquo;</p><p class="ask"><span class="ask-l">Ask</span> Ask for an intro to MN8&#x27;s controller.</p></td>
+</tr>
+    </tbody>
+  </table><div class="empty" hidden>No top-priority people match that search.</div></div>
+</section>
 
 <section id="prospects" data-g="p">
   <div class="sec-h"><h2>Prospects</h2><span class="count" data-count>17 people</span></div>

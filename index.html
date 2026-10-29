@@ -1,0 +1,369 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow, noimageindex">
+<title>Hyphenate Party Playbook</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Familjen+Grotesk:wght@500;600;700&family=Public+Sans:ital,wght@0,400;0,500;0,600;1,400&display=swap">
+<style>
+/* Layout: one reading column; a sticky filter bar; two ruled tables (prospects, partners) that fold into cards on phones */
+:root{
+  --bg:#f5f6f8; --surface:#ffffff; --ink:#141b24; --muted:#5b6575; --line:#dde1e7;
+  --accent:#2343c4; --accent-soft:#e6ebfb;
+  --stretch:#8a5a00; --stretch-soft:#fbf0d9;
+  --partner:#0d6b63; --partner-soft:#dcf1ee;
+  --avatar:#e3e7ee;
+  --f-display:"Familjen Grotesk","Helvetica Neue",Arial,sans-serif;
+  --f-body:"Public Sans",system-ui,-apple-system,"Segoe UI",sans-serif;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#0f141b; --surface:#161d27; --ink:#e8ecf2; --muted:#9aa5b5; --line:#2a3340;
+  --accent:#8ea5ff; --accent-soft:#1e2a52;
+  --stretch:#f0c066; --stretch-soft:#3a2d12;
+  --partner:#6fd6ca; --partner-soft:#123832;
+  --avatar:#253041; color-scheme:dark;
+}}
+:root[data-theme="dark"]{
+  --bg:#0f141b; --surface:#161d27; --ink:#e8ecf2; --muted:#9aa5b5; --line:#2a3340;
+  --accent:#8ea5ff; --accent-soft:#1e2a52;
+  --stretch:#f0c066; --stretch-soft:#3a2d12;
+  --partner:#6fd6ca; --partner-soft:#123832;
+  --avatar:#253041; color-scheme:dark;
+}
+*{box-sizing:border-box}
+html{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+body{margin:0}
+[hidden]{display:none!important}
+img{max-width:100%}
+body{background:var(--bg);color:var(--ink);font-family:var(--f-body);font-size:15px;line-height:1.5;
+  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:0 56px}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:10;background:var(--bg)}
+.wrap{max-width:1080px;margin:0 auto}
+header{padding-block:40px 20px;display:grid;gap:10px}
+.eyebrow{font-family:var(--f-display);font-weight:600;font-size:13px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);display:flex;align-items:center;gap:10px}
+.eyebrow::before{content:"";width:22px;height:4px;border-radius:2px;background:var(--accent)}
+h1{font-family:var(--f-display);font-weight:700;font-size:clamp(30px,5vw,44px);line-height:1.08;margin:0;text-wrap:balance;letter-spacing:-.01em}
+.lede{margin:0;max-width:62ch;color:var(--muted)}
+.stats{display:flex;flex-wrap:wrap;gap:8px 20px;margin:4px 0 0;padding:0;list-style:none;font-variant-numeric:tabular-nums}
+.stats b{font-family:var(--f-display);font-size:18px;color:var(--ink);margin-right:4px}
+.stats li{color:var(--muted);font-size:14px}
+.bar{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--bg);padding-block:12px;border-bottom:1px solid var(--line);display:flex;flex-wrap:wrap;gap:10px;align-items:center}
+.search{flex:1 1 240px;min-width:0;position:relative}
+.search input{width:100%;font:inherit;font-size:15px;color:var(--ink);background:var(--surface);border:1px solid var(--line);border-radius:8px;padding:9px 12px}
+.search input:focus-visible{outline:2px solid var(--accent);outline-offset:1px;border-color:transparent}
+.seg{display:inline-flex;border:1px solid var(--line);border-radius:8px;overflow:hidden;background:var(--surface)}
+.seg button{font:inherit;font-size:14px;font-weight:500;color:var(--muted);background:transparent;border:0;padding:8px 14px;cursor:pointer}
+.seg button+button{border-left:1px solid var(--line)}
+.seg button[aria-pressed="true"]{background:var(--accent-soft);color:var(--accent);font-weight:600}
+.seg button:focus-visible{outline:2px solid var(--accent);outline-offset:-2px}
+section{padding-top:32px}
+.sec-h{display:flex;flex-wrap:wrap;align-items:baseline;gap:6px 14px;margin-bottom:6px}
+h2{font-family:var(--f-display);font-weight:700;font-size:24px;margin:0;text-wrap:balance}
+.count{font-variant-numeric:tabular-nums;color:var(--muted);font-size:14px}
+.sec-d{margin:0 0 14px;color:var(--muted);max-width:68ch}
+.tbl{overflow-x:auto;background:var(--surface);border:1px solid var(--line);border-radius:10px}
+table{width:100%;border-collapse:collapse}
+thead th{text-align:left;font-family:var(--f-display);font-weight:600;font-size:12px;letter-spacing:.07em;text-transform:uppercase;color:var(--muted);padding:12px 16px;border-bottom:1px solid var(--line)}
+tbody td{padding:16px;vertical-align:top;border-bottom:1px solid var(--line)}
+tbody tr:last-child td{border-bottom:0}
+.c-ph{width:96px}
+.c-who{width:30%}
+.av{width:64px;height:64px;border-radius:50%;object-fit:cover;object-position:50% 25%;display:block;background:var(--avatar)}
+.av-none{display:grid;place-items:center;font-family:var(--f-display);font-weight:600;font-size:20px;color:var(--muted);border:1px dashed var(--line)}
+.nm{font-family:var(--f-display);font-weight:600;font-size:17px;line-height:1.25}
+.nm a{color:inherit;text-decoration:none;border-bottom:1px solid var(--line)}
+.nm a:hover{border-bottom-color:var(--accent);color:var(--accent)}
+.nm a:focus-visible{outline:2px solid var(--accent);outline-offset:2px;border-radius:2px}
+.co{font-weight:600;margin-top:2px}
+.rl{color:var(--muted);font-size:14px}
+.tag{display:inline-block;margin-top:8px;font-size:12px;font-weight:600;padding:2px 8px;border-radius:999px;background:var(--partner-soft);color:var(--partner)}
+.t-icp{background:var(--accent-soft);color:var(--accent)}
+.t-stretch{background:var(--stretch-soft);color:var(--stretch)}
+.say{margin:0 0 8px;font-size:15.5px;max-width:62ch}
+.ask{margin:0;color:var(--muted);font-size:14px;max-width:62ch}
+.ask-l{font-family:var(--f-display);font-weight:600;font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink);background:var(--avatar);border-radius:4px;padding:1px 6px;margin-right:4px}
+.empty{padding:20px 16px;color:var(--muted)}
+footer{margin-top:36px;color:var(--muted);font-size:13.5px;max-width:72ch;display:grid;gap:6px}
+footer p{margin:0}
+@media (max-width:720px){
+  thead{display:none}
+  table,tbody{display:block}
+  tbody tr{display:grid;grid-template-columns:64px minmax(0,1fr);gap:4px 14px;padding:16px;border-bottom:1px solid var(--line)}
+  tbody tr:last-child{border-bottom:0}
+  tbody td{padding:0;border:0}
+  .c-ph,.c-who{width:auto}
+  .c-say{grid-column:1 / -1;padding-top:10px}
+  .tbl{overflow:visible}
+}
+@media (prefers-reduced-motion:no-preference){.nm a,.seg button{transition:color .15s,background-color .15s,border-color .15s}}
+</style>
+</head>
+<body>
+
+
+<div class="wrap">
+<header>
+  <div class="eyebrow">Hyphenate Series A party</div>
+  <h1>Hyphenate Party Playbook</h1>
+  <p class="lede">Who to find, what they do, and the line to open with. Prospects work at companies that could buy Hyphenate. Partners can open doors to many of those companies. The ten top-priority conversations are on a separate list and are not repeated here.</p>
+  <ul class="stats">
+    <li><b>17</b>prospects</li>
+    <li><b>21</b>partners</li>
+    <li><b>22</b>of 38 with a photo</li>
+  </ul>
+</header>
+
+<div class="bar" role="search">
+  <div class="search"><label for="q" class="sr" hidden>Search people</label><input id="q" type="search" placeholder="Search name, company or topic" autocomplete="off" aria-label="Search name, company or topic"></div>
+  <div class="seg" role="group" aria-label="Show">
+    <button type="button" id="f-all" data-f="all" aria-pressed="true">All</button>
+    <button type="button" id="f-p" data-f="p" aria-pressed="false">Prospects</button>
+    <button type="button" id="f-q" data-f="q" aria-pressed="false">Partners</button>
+  </div>
+</div>
+
+<section id="prospects" data-g="p">
+  <div class="sec-h"><h2>Prospects</h2><span class="count" data-count>17 people</span></div>
+  <p class="sec-d">12 work at ideal-customer-profile companies. 5 work at large enterprises, where deals take longer.</p>
+  <div class="tbl"><table>
+    <thead><tr><th scope="col"><span hidden>Photo</span></th><th scope="col">Person</th><th scope="col">What to say</th></tr></thead>
+    <tbody>
+<tr data-s="adam dell domain money founder and ceo icp company fee billing, advisor payouts and audit prep grow with every client, and hyphenate&#x27;s agents absorb that without new hires. he decides. as a long-time vc, ask which of his portfolio companies feel close pain.">
+<td class="c-ph"><img class="av" src="photos/adam-dell.jpg" alt="Photo of Adam Dell" width="64" height="64" loading="lazy"></td>
+<td class="c-who"><div class="nm">Adam Dell</div><div class="co">Domain Money</div><div class="rl">Founder and CEO</div><span class="tag t-icp">ICP company</span></td>
+<td class="c-say"><p class="say">&ldquo;Fee billing, advisor payouts and audit prep grow with every client, and Hyphenate&#x27;s agents absorb that without new hires.&rdquo;</p><p class="ask"><span class="ask-l">Ask</span> He decides. As a long-time VC, ask which of his portfolio companies feel close pain.</p></td>
+</tr>
+<tr data-s="nestor taffur baseten ai-native accounts, model apis icp company usage-based billing plus big compute bills makes reconciliation hard. synthesia and sierra already run on hyphenate. ask for an intro to the finance lead.">
+<td class="c-ph"><img class="av" src="photos/nestor-taffur.jpg" alt="Photo of Nestor Taffur" width="64" height="64" loading="lazy"></td>
+<td class="c-who"><div class="nm"><a href="https://www.linkedin.com/in/nestortaffur" target="_blank" rel="noopener">Nestor Taffur</a></div><div class="co">Baseten</div><div class="rl">AI-native accounts, model APIs</div><span class="tag t-icp">ICP company</span></td>
+<td class="c-say"><p class="say">&ldquo;Usage-based billing plus big compute bills makes reconciliation hard. Synthesia and Sierra already run on Hyphenate.&rdquo;</p><p class="ask"><span class="ask-l">Ask</span> Ask for an intro to the finance lead.</p></td>
+</tr>
+<tr data-s="dani palmiotto addepar account executive icp company complex enterprise pricing strains billing and close. hyphenate automates invoicing, cash matching and multi-entity reconciliations. ask for an intro to the controller.">
+<td class="c-ph"><img class="av" src="photos/dani-palmiotto.jpg" alt="Photo of Dani Palmiotto" width="64" height="64" loading="lazy"></td>
+<td class="c-who"><div class="nm">Dani Palmiotto</div><div class="co">Addepar</div><div class="rl">Account executive</div><span class="tag t-icp">ICP company</span></td>
+<td class="c-say"><p class="say">&ldquo;Complex enterprise pricing strains billing and close. Hyphenate automates invoicing, cash matching and multi-entity reconciliations.&rdquo;</p><p class="ask"><span class="ask-l">Ask</span> Ask for an intro to the controller.</p></td>
+</tr>
+<tr data-s="camille boley dataminr events marketing icp company multi-year enterprise and government contracts mean heavy collections. kiteworks runs 98% of cash transactions straight through. ask for an intro to the vp of finance.">
+<td class="c-ph"><span class="av av-none" role="img" aria-label="No public photo found for Camille Boley">CB</span></td>
+<td class="c-who"><div class="nm"><a href="https://www.linkedin.com/in/camille-boley-2b215a240" target="_blank" rel="noopener">Camille Boley</a></div><div class="co">Dataminr</div><div class="rl">Events marketing</div><span class="tag t-icp">ICP company</span></td>
+<td class="c-say"><p class="say">&ldquo;Multi-year enterprise and government contracts mean heavy collections. Kiteworks runs 98% of cash transactions straight through.&rdquo;</p><p class="ask"><span class="ask-l">Ask</span> Ask for an intro to the VP of Finance.</p></td>
+</tr>
+<tr data-s="carolyn pham bvnk director of global events icp company banks plus stablecoin rails make reconciliation a daily job. treasury agents reconcile every account daily. ask for the treasury lead.">
+<td class="c-ph"><span class="av av-none" role="img" aria-label="No public photo found for Carolyn Pham">CP</span></td>
+<td class="c-who"><div class="nm"><a href="https://www.linkedin.com/in/carolyn-pham-8b8319109" target="_blank" rel="noopener">Carolyn Pham</a></div><div class="co">BVNK</div><div class="rl">Director of global events</div><span class="tag t-icp">ICP company</span></td>
+<td class="c-say"><p class="say">&ldquo;Banks plus stablecoin rails make reconciliation a daily job. Treasury agents reconcile every account daily.&rdquo;</p><p class="ask"><span class="ask-l">Ask</span> Ask for the treasury lead.</p></td>
+</tr>
+<tr data-s="lina rannekleiv monex usa marketing manager icp company she came from vic.ai, so talk to her as a peer about multi-currency cash positioning. ask for an intro at monex, and at tempus.">
+<td class="c-ph"><img class="av" src="photos/lina-rannekleiv.jpg" alt="Photo of Lina Rannekleiv" width="64" height="64" loading="lazy"></td>
+<td class="c-who"><div class="nm">Lina Rannekleiv</div><div class="co">Monex USA</div><div class="rl">Marketing manager</div><span class="tag t-icp">ICP company</span></td>
+<td class="c-say"><p class="say">&ldquo;She came from Vic.ai, so talk to her as a peer about multi-currency cash positioning.&rdquo;</p><p class="ask"><span class="ask-l">Ask</span> Ask for an intro at Monex, and at Tempus.</p></td>
+</tr>
+<tr data-s="sophia ryterband eliza strategy and operations lead icp company what still lives in spreadsheets between delivery and cash collected? she can champion it internally. ask who owns billing and contractor payables.">
+<td class="c-ph"><span class="av av-none" role="img" aria-label="No public photo found for Sophia Ryterband">SR</span></td>
+<td class="c-who"><div class="nm"><a href="https://www.linkedin.com/in/sophia-ryterband-3365b7159" target="_blank" rel="noopener">Sophia Ryterband</a></div><div class="co">Eliza</div><div class="rl">Strategy and operations lead</div><span class="tag t-icp">ICP company</span></td>
+<td class="c-say"><p class="say">&ldquo;What still lives in spreadsheets between delivery and cash collected?&rdquo;</p><p class="ask"><span class="ask-l">Ask</span> She can champion it internally. Ask who owns billing and contractor payables.</p></td>
+</tr>
+<tr data-s="victoria james cote restaurant group beverage director and partner icp company card settlements in four cities and many wine vendors. hospitality is a live hyphenate vertical. ask how vendor bills get paid today, and for the cfo.">
+<td class="c-ph"><img class="av" src="photos/victoria-james.jpg" alt="Photo of Victoria James" width="64" height="64" loading="lazy"></td>
+<td class="c-who"><div class="nm">Victoria James</div><div class="co">COTE restaurant group</div><div class="rl">Beverage director and partner</div><span class="tag t-icp">ICP company</span></td>
+<td class="c-say"><p class="say">&ldquo;Card settlements in four cities and many wine vendors. Hospitality is a live Hyphenate vertical.&rdquo;</p><p class="ask"><span class="ask-l">Ask</span> Ask how vendor bills get paid today, and for the CFO.</p></td>
+</tr>
+<tr data-s="maggie popick mediaocean technical recruiter icp company media payments plus acquisitions mean huge payables and intercompany. hibid runs over $2.5b through hyphenate. ask who leads finance.">
+<td class="c-ph"><span class="av av-none" role="img" aria-label="No public photo found for Maggie Popick">MP</span></td>
+<td class="c-who"><div class="nm"><a href="https://www.linkedin.com/in/maggie-popick-981038220" target="_blank" rel="noopener">Maggie Popick</a></div><div class="co">Mediaocean</div><div class="rl">Technical recruiter</div><span class="tag t-icp">ICP company</span></td>
+<td class="c-say"><p class="say">&ldquo;Media payments plus acquisitions mean huge payables and intercompany. HiBid runs over $2.5B through Hyphenate.&rdquo;</p><p class="ask"><span class="ask-l">Ask</span> Ask who leads finance.</p></td>
+</tr>
+<tr data-s="sophia vivenzio eulerity brand strategist icp company every franchise location adds invoices and collections, and hyphenate automates both. ask for the finance lead.">
+<td class="c-ph"><img class="av" src="photos/sophia-vivenzio.jpg" alt="Photo of Sophia Vivenzio" width="64" height="64" loading="lazy"></td>
+<td class="c-who"><div class="nm"><a href="https://www.linkedin.com/in/sophia-vivenzio" target="_blank" rel="noopener">Sophia Vivenzio</a></div><div class="co">Eulerity</div><div class="rl">Brand strategist</div><span class="tag t-icp">ICP company</span></td>
+<td class="c-say"><p class="say">&ldquo;Every franchise location adds invoices and collections, and Hyphenate automates both.&rdquo;</p><p class="ask"><span class="ask-l">Ask</span> Ask for the finance lead.</p></td>
+</tr>
+<tr data-s="mariele marki unified infotech director of marketing icp company project billing across us and offshore entities, with no erp change needed. ask who runs finance.">
+<td class="c-ph"><span class="av av-none" role="img" aria-label="No public photo found for Mariele Marki">MM</span></td>
+<td class="c-who"><div class="nm">Mariele Marki</div><div class="co">Unified Infotech</div><div class="rl">Director of marketing</div><span class="tag t-icp">ICP company</span></td>
+<td class="c-say"><p class="say">&ldquo;Project billing across US and offshore entities, with no ERP change needed.&rdquo;</p><p class="ask"><span class="ask-l">Ask</span> Ask who runs finance.</p></td>
+</tr>
+<tr data-s="corey strickler reis contracting senior project manager icp company how long does it take to get a sub paid? construction is a live hyphenate vertical. ask how pay apps and retainage are tracked today.">
+<td class="c-ph"><span class="av av-none" role="img" aria-label="No public photo found for Corey Strickler">CS</span></td>
+<td class="c-who"><div class="nm"><a href="https://www.linkedin.com/in/coreystrickler" target="_blank" rel="noopener">Corey Strickler</a></div><div class="co">Reis Contracting</div><div class="rl">Senior project manager</div><span class="tag t-icp">ICP company</span></td>
+<td class="c-say"><p class="say">&ldquo;How long does it take to get a sub paid? Construction is a live Hyphenate vertical.&rdquo;</p><p class="ask"><span class="ask-l">Ask</span> Ask how pay apps and retainage are tracked today.</p></td>
+</tr>
+<tr data-s="nik khetarpal roivant sciences vice president enterprise stretch many subsidiaries make intercompany heavy. dura software&#x27;s roll-up closes 7 days faster. ask for the shared-services finance lead.">
+<td class="c-ph"><span class="av av-none" role="img" aria-label="No public photo found for Nik Khetarpal">NK</span></td>
+<td class="c-who"><div class="nm"><a href="https://www.linkedin.com/in/nikkhetarpal" target="_blank" rel="noopener">Nik Khetarpal</a></div><div class="co">Roivant Sciences</div><div class="rl">Vice president</div><span class="tag t-stretch">Enterprise stretch</span></td>
+<td class="c-say"><p class="say">&ldquo;Many subsidiaries make intercompany heavy. Dura Software&#x27;s roll-up closes 7 days faster.&rdquo;</p><p class="ask"><span class="ask-l">Ask</span> Ask for the shared-services finance lead.</p></td>
+</tr>
+<tr data-s="deshan kumar the trade desk director, client partners enterprise stretch you bill agencies and pay media supply at huge volume. lead with a partnership, then ask for finance operations.">
+<td class="c-ph"><img class="av" src="photos/deshan-kumar.jpg" alt="Photo of Deshan Kumar" width="64" height="64" loading="lazy"></td>
+<td class="c-who"><div class="nm">Deshan Kumar</div><div class="co">The Trade Desk</div><div class="rl">Director, client partners</div><span class="tag t-stretch">Enterprise stretch</span></td>
+<td class="c-say"><p class="say">&ldquo;You bill agencies and pay media supply at huge volume.&rdquo;</p><p class="ask"><span class="ask-l">Ask</span> Lead with a partnership, then ask for finance operations.</p></td>
+</tr>
+<tr data-s="bhas nalabothula tradeweb head of us institutional rates enterprise stretch fee billing to dealers across global entities. propose a one-workflow pilot. ask for the controller&#x27;s office.">
+<td class="c-ph"><img class="av" src="photos/bhas-nalabothula.jpg" alt="Photo of Bhas Nalabothula" width="64" height="64" loading="lazy"></td>
+<td class="c-who"><div class="nm">Bhas Nalabothula</div><div class="co">Tradeweb</div><div class="rl">Head of US institutional rates</div><span class="tag t-stretch">Enterprise stretch</span></td>
+<td class="c-say"><p class="say">&ldquo;Fee billing to dealers across global entities.&rdquo;</p><p class="ask"><span class="ask-l">Ask</span> Propose a one-workflow pilot. Ask for the controller&#x27;s office.</p></td>
+</tr>
+<tr data-s="ana karimi dolce &amp; gabbana east coast crm and events enterprise stretch wholesale deductions plus store and online settlements. ask whether us finance has its own budget.">
+<td class="c-ph"><span class="av av-none" role="img" aria-label="No public photo found for Ana Karimi">AK</span></td>
+<td class="c-who"><div class="nm">Ana Karimi</div><div class="co">Dolce &amp; Gabbana</div><div class="rl">East Coast CRM and events</div><span class="tag t-stretch">Enterprise stretch</span></td>
+<td class="c-say"><p class="say">&ldquo;Wholesale deductions plus store and online settlements.&rdquo;</p><p class="ask"><span class="ask-l">Ask</span> Ask whether US finance has its own budget.</p></td>
+</tr>
+<tr data-s="brittaney trent skinceuticals (l&#x27;oréal) us marketing director enterprise stretch many small dermatology accounts plus retailer deductions. ask whether the us division picks its own tools.">
+<td class="c-ph"><span class="av av-none" role="img" aria-label="No public photo found for Brittaney Trent">BT</span></td>
+<td class="c-who"><div class="nm">Brittaney Trent</div><div class="co">SkinCeuticals (L&#x27;Oréal)</div><div class="rl">US marketing director</div><span class="tag t-stretch">Enterprise stretch</span></td>
+<td class="c-say"><p class="say">&ldquo;Many small dermatology accounts plus retailer deductions.&rdquo;</p><p class="ask"><span class="ask-l">Ask</span> Ask whether the US division picks its own tools.</p></td>
+</tr>
+    </tbody>
+  </table><div class="empty" hidden>No prospects match that search.</div></div>
+</section>
+
+<section id="partners" data-g="q">
+  <div class="sec-h"><h2>Channels and partners</h2><span class="count" data-count>21 people</span></div>
+  <p class="sec-d">Investors, lenders, advisors and platforms. Each one can introduce Hyphenate to several finance teams at once.</p>
+  <div class="tbl"><table>
+    <thead><tr><th scope="col"><span hidden>Photo</span></th><th scope="col">Person</th><th scope="col">What to say</th></tr></thead>
+    <tbody>
+<tr data-s="sameer kenkare amazon web services head of corporate venture and startup engagement platform partner hyphenate&#x27;s agents fit aws&#x27;s startup and marketplace programs. ask about co-marketing and an aws marketplace listing.">
+<td class="c-ph"><img class="av" src="photos/sameer-kenkare.jpg" alt="Photo of Sameer Kenkare" width="64" height="64" loading="lazy"></td>
+<td class="c-who"><div class="nm">Sameer Kenkare</div><div class="co">Amazon Web Services</div><div class="rl">Head of corporate venture and startup engagement</div><span class="tag t-platform">Platform partner</span></td>
+<td class="c-say"><p class="say">&ldquo;Hyphenate&#x27;s agents fit AWS&#x27;s startup and marketplace programs.&rdquo;</p><p class="ask"><span class="ask-l">Ask</span> Ask about co-marketing and an AWS Marketplace listing.</p></td>
+</tr>
+<tr data-s="bar weiner bessemer venture partners investor venture capital your growth-stage software companies hit close and collections pain right after series b. ask which portfolio cfos to meet.">
+<td class="c-ph"><img class="av" src="photos/bar-weiner.jpg" alt="Photo of Bar Weiner" width="64" height="64" loading="lazy"></td>
+<td class="c-who"><div class="nm">Bar Weiner</div><div class="co">Bessemer Venture Partners</div><div class="rl">Investor</div><span class="tag t-vc">Venture capital</span></td>
+<td class="c-say"><p class="say">&ldquo;Your growth-stage software companies hit close and collections pain right after Series B.&rdquo;</p><p class="ask"><span class="ask-l">Ask</span> Ask which portfolio CFOs to meet.</p></td>
+</tr>
+<tr data-s="abhishek malani sequoia capital growth investor venture capital same portfolio pitch: growth-stage finance teams drown in close and collections. ask for a portfolio cfo forum or a newsletter mention.">
+<td class="c-ph"><img class="av" src="photos/abhishek-malani.jpg" alt="Photo of Abhishek Malani" width="64" height="64" loading="lazy"></td>
+<td class="c-who"><div class="nm"><a href="https://www.linkedin.com/in/abhishek-malani" target="_blank" rel="noopener">Abhishek Malani</a></div><div class="co">Sequoia Capital</div><div class="rl">Growth investor</div><span class="tag t-vc">Venture capital</span></td>
+<td class="c-say"><p class="say">&ldquo;Same portfolio pitch: growth-stage finance teams drown in close and collections.&rdquo;</p><p class="ask"><span class="ask-l">Ask</span> Ask for a portfolio CFO forum or a newsletter mention.</p></td>
+</tr>
+<tr data-s="hannah prusack z capital group corporate development and ir private equity pe owners want faster closes and lower back-office cost across every portfolio company. ask for the operating partner.">
+<td class="c-ph"><span class="av av-none" role="img" aria-label="No public photo found for Hannah Prusack">HP</span></td>
+<td class="c-who"><div class="nm">Hannah Prusack</div><div class="co">Z Capital Group</div><div class="rl">Corporate development and IR</div><span class="tag t-pe">Private equity</span></td>
+<td class="c-say"><p class="say">&ldquo;PE owners want faster closes and lower back-office cost across every portfolio company.&rdquo;</p><p class="ask"><span class="ask-l">Ask</span> Ask for the operating partner.</p></td>
+</tr>
+<tr data-s="sofiia oprishko ey foundry venture strategist advisor or auditor ey is already listed as a hyphenate partner. ask which ey foundry growth companies need finance automation.">
+<td class="c-ph"><span class="av av-none" role="img" aria-label="No public photo found for Sofiia Oprishko">SO</span></td>
+<td class="c-who"><div class="nm"><a href="https://www.linkedin.com/in/oprishko" target="_blank" rel="noopener">Sofiia Oprishko</a></div><div class="co">EY Foundry</div><div class="rl">Venture strategist</div><span class="tag t-advisor">Advisor or auditor</span></td>
+<td class="c-say"><p class="say">&ldquo;EY is already listed as a Hyphenate partner.&rdquo;</p><p class="ask"><span class="ask-l">Ask</span> Ask which EY Foundry growth companies need finance automation.</p></td>
+</tr>
+<tr data-s="keith flyer american express program manager, ai adoption platform partner amex already integrates with hyphenate&#x27;s treasury product. ask who owns commercial-card and ap automation partnerships.">
+<td class="c-ph"><img class="av" src="photos/keith-flyer.jpg" alt="Photo of Keith Flyer" width="64" height="64" loading="lazy"></td>
+<td class="c-who"><div class="nm"><a href="https://www.linkedin.com/in/keithflyer" target="_blank" rel="noopener">Keith Flyer</a></div><div class="co">American Express</div><div class="rl">Program manager, AI adoption</div><span class="tag t-platform">Platform partner</span></td>
+<td class="c-say"><p class="say">&ldquo;AmEx already integrates with Hyphenate&#x27;s treasury product.&rdquo;</p><p class="ask"><span class="ask-l">Ask</span> Ask who owns commercial-card and AP automation partnerships.</p></td>
+</tr>
+<tr data-s="alua telemtayeva ramp vc relations and startup partnerships platform partner ramp overlaps with hyphenate on spend and payables, so keep it light. swap notes on vc partnership programs.">
+<td class="c-ph"><img class="av" src="photos/alua-telemtayeva.jpg" alt="Photo of Alua Telemtayeva" width="64" height="64" loading="lazy"></td>
+<td class="c-who"><div class="nm"><a href="https://www.linkedin.com/in/alua-telemtayeva" target="_blank" rel="noopener">Alua Telemtayeva</a></div><div class="co">Ramp</div><div class="rl">VC relations and startup partnerships</div><span class="tag t-platform">Platform partner</span></td>
+<td class="c-say"><p class="say">&ldquo;Ramp overlaps with Hyphenate on spend and payables, so keep it light.&rdquo;</p><p class="ask"><span class="ask-l">Ask</span> Swap notes on VC partnership programs.</p></td>
+</tr>
+<tr data-s="crystal anagnostopoulos alcentra associate, private credit private credit your borrowers need clean, on-time reporting for covenants, and hyphenate speeds that up. ask about portfolio intros.">
+<td class="c-ph"><span class="av av-none" role="img" aria-label="No public photo found for Crystal Anagnostopoulos">CA</span></td>
+<td class="c-who"><div class="nm"><a href="https://www.linkedin.com/in/crystal-anagnostopoulos" target="_blank" rel="noopener">Crystal Anagnostopoulos</a></div><div class="co">Alcentra</div><div class="rl">Associate, private credit</div><span class="tag t-lender">Private credit</span></td>
+<td class="c-say"><p class="say">&ldquo;Your borrowers need clean, on-time reporting for covenants, and Hyphenate speeds that up.&rdquo;</p><p class="ask"><span class="ask-l">Ask</span> Ask about portfolio intros.</p></td>
+</tr>
+<tr data-s="amanda bishara consonance capital private equity associate private equity healthcare operators have heavy multi-entity close. ask for the portfolio operations lead.">
+<td class="c-ph"><span class="av av-none" role="img" aria-label="No public photo found for Amanda Bishara">AB</span></td>
+<td class="c-who"><div class="nm">Amanda Bishara</div><div class="co">Consonance Capital</div><div class="rl">Private equity associate</div><span class="tag t-pe">Private equity</span></td>
+<td class="c-say"><p class="say">&ldquo;Healthcare operators have heavy multi-entity close.&rdquo;</p><p class="ask"><span class="ask-l">Ask</span> Ask for the portfolio operations lead.</p></td>
+</tr>
+<tr data-s="julia sacay baker tilly senior audit associate advisor or auditor clients with a messy close make audits painful. hyphenate keeps books audit-ready. ask which clients struggle most.">
+<td class="c-ph"><span class="av av-none" role="img" aria-label="No public photo found for Julia Sacay">JS</span></td>
+<td class="c-who"><div class="nm">Julia Sacay</div><div class="co">Baker Tilly</div><div class="rl">Senior audit associate</div><span class="tag t-advisor">Advisor or auditor</span></td>
+<td class="c-say"><p class="say">&ldquo;Clients with a messy close make audits painful. Hyphenate keeps books audit-ready.&rdquo;</p><p class="ask"><span class="ask-l">Ask</span> Ask which clients struggle most.</p></td>
+</tr>
+<tr data-s="lenny orenshur floyd advisory associate advisor or auditor you see accounting messes up close. explore a referral partnership.">
+<td class="c-ph"><span class="av av-none" role="img" aria-label="No public photo found for Lenny Orenshur">LO</span></td>
+<td class="c-who"><div class="nm">Lenny Orenshur</div><div class="co">Floyd Advisory</div><div class="rl">Associate</div><span class="tag t-advisor">Advisor or auditor</span></td>
+<td class="c-say"><p class="say">&ldquo;You see accounting messes up close.&rdquo;</p><p class="ask"><span class="ask-l">Ask</span> Explore a referral partnership.</p></td>
+</tr>
+<tr data-s="alberto marcassa deloitte tech m&amp;a senior manager advisor or auditor post-deal finance integration is where hyphenate shines. ask about referrals from deal teams.">
+<td class="c-ph"><img class="av" src="photos/alberto-marcassa.jpg" alt="Photo of Alberto Marcassa" width="64" height="64" loading="lazy"></td>
+<td class="c-who"><div class="nm">Alberto Marcassa</div><div class="co">Deloitte</div><div class="rl">Tech M&amp;A senior manager</div><span class="tag t-advisor">Advisor or auditor</span></td>
+<td class="c-say"><p class="say">&ldquo;Post-deal finance integration is where Hyphenate shines.&rdquo;</p><p class="ask"><span class="ask-l">Ask</span> Ask about referrals from deal teams.</p></td>
+</tr>
+<tr data-s="noelle lipschutz redirect consulting lead account executive advisor or auditor you implement finance software for real-estate firms, and hyphenate layers on top. explore an implementation partnership.">
+<td class="c-ph"><img class="av" src="photos/noelle-lipschutz.jpg" alt="Photo of Noelle Lipschutz" width="64" height="64" loading="lazy"></td>
+<td class="c-who"><div class="nm">Noelle Lipschutz</div><div class="co">REdirect Consulting</div><div class="rl">Lead account executive</div><span class="tag t-advisor">Advisor or auditor</span></td>
+<td class="c-say"><p class="say">&ldquo;You implement finance software for real-estate firms, and Hyphenate layers on top.&rdquo;</p><p class="ask"><span class="ask-l">Ask</span> Explore an implementation partnership.</p></td>
+</tr>
+<tr data-s="erez agmon vayu ceo and co-founder platform partner your billing platform feeds invoices, and hyphenate collects and reconciles the cash. explore an integration.">
+<td class="c-ph"><img class="av" src="photos/erez-agmon.jpg" alt="Photo of Erez Agmon" width="64" height="64" loading="lazy"></td>
+<td class="c-who"><div class="nm">Erez Agmon</div><div class="co">Vayu</div><div class="rl">CEO and co-founder</div><span class="tag t-platform">Platform partner</span></td>
+<td class="c-say"><p class="say">&ldquo;Your billing platform feeds invoices, and Hyphenate collects and reconciles the cash.&rdquo;</p><p class="ask"><span class="ask-l">Ask</span> Explore an integration.</p></td>
+</tr>
+<tr data-s="nikhita jaaswal soma capital vc investor venture capital later-stage portfolio companies with a real finance team are the fit. ask which companies have a finance team of three or more.">
+<td class="c-ph"><img class="av" src="photos/nikhita-jaaswal.jpg" alt="Photo of Nikhita Jaaswal" width="64" height="64" loading="lazy"></td>
+<td class="c-who"><div class="nm">Nikhita Jaaswal</div><div class="co">Soma Capital</div><div class="rl">VC investor</div><span class="tag t-vc">Venture capital</span></td>
+<td class="c-say"><p class="say">&ldquo;Later-stage portfolio companies with a real finance team are the fit.&rdquo;</p><p class="ask"><span class="ask-l">Ask</span> Ask which companies have a finance team of three or more.</p></td>
+</tr>
+<tr data-s="lio elalouf frst analyst, ai investments venture capital european companies expanding to the us need clean multi-entity books. ask which portfolio companies are opening us entities.">
+<td class="c-ph"><img class="av" src="photos/lio-elalouf.jpg" alt="Photo of Lio Elalouf" width="64" height="64" loading="lazy"></td>
+<td class="c-who"><div class="nm">Lio Elalouf</div><div class="co">Frst</div><div class="rl">Analyst, AI investments</div><span class="tag t-vc">Venture capital</span></td>
+<td class="c-say"><p class="say">&ldquo;European companies expanding to the US need clean multi-entity books.&rdquo;</p><p class="ask"><span class="ask-l">Ask</span> Ask which portfolio companies are opening US entities.</p></td>
+</tr>
+<tr data-s="andrew yeung andrew&#x27;s tech events events host and investor connector let&#x27;s co-host a dinner for nyc finance leaders. his reach to founders is the value.">
+<td class="c-ph"><img class="av" src="photos/andrew-yeung.jpg" alt="Photo of Andrew Yeung" width="64" height="64" loading="lazy"></td>
+<td class="c-who"><div class="nm"><a href="https://www.linkedin.com/in/andyeung" target="_blank" rel="noopener">Andrew Yeung</a></div><div class="co">Andrew&#x27;s Tech Events</div><div class="rl">Events host and investor</div><span class="tag t-connector">Connector</span></td>
+<td class="c-say"><p class="say">&ldquo;Let&#x27;s co-host a dinner for NYC finance leaders.&rdquo;</p><p class="ask"><span class="ask-l">Ask</span> His reach to founders is the value.</p></td>
+</tr>
+<tr data-s="katerina davidova-kukhar alta holdings vp, new ventures and corporate strategy private equity find out what alta owns, then pitch those companies. ask what companies alta owns.">
+<td class="c-ph"><img class="av" src="photos/katerina-davidova-kukhar.jpg" alt="Photo of Katerina Davidova-Kukhar" width="64" height="64" loading="lazy"></td>
+<td class="c-who"><div class="nm"><a href="https://www.linkedin.com/in/katerina-kukhar" target="_blank" rel="noopener">Katerina Davidova-Kukhar</a></div><div class="co">Alta Holdings</div><div class="rl">VP, new ventures and corporate strategy</div><span class="tag t-pe">Private equity</span></td>
+<td class="c-say"><p class="say">&ldquo;Find out what Alta owns, then pitch those companies.&rdquo;</p><p class="ask"><span class="ask-l">Ask</span> Ask what companies Alta owns.</p></td>
+</tr>
+<tr data-s="sophia burnette cerberus capital management talent acquisition, finance and compliance private equity open finance roles at portfolio companies signal close pain. ask which portfolio companies are hiring in finance.">
+<td class="c-ph"><img class="av" src="photos/sophia-burnette.jpg" alt="Photo of Sophia Burnette" width="64" height="64" loading="lazy"></td>
+<td class="c-who"><div class="nm"><a href="https://www.linkedin.com/in/sophia-burnette-755615175" target="_blank" rel="noopener">Sophia Burnette</a></div><div class="co">Cerberus Capital Management</div><div class="rl">Talent acquisition, finance and compliance</div><span class="tag t-pe">Private equity</span></td>
+<td class="c-say"><p class="say">&ldquo;Open finance roles at portfolio companies signal close pain.&rdquo;</p><p class="ask"><span class="ask-l">Ask</span> Ask which portfolio companies are hiring in finance.</p></td>
+</tr>
+<tr data-s="stephanie chubin 8vc executive assistant venture capital she is the warm path to the partners. ask her to introduce you to an 8vc partner.">
+<td class="c-ph"><span class="av av-none" role="img" aria-label="No public photo found for Stephanie Chubin">SC</span></td>
+<td class="c-who"><div class="nm">Stephanie Chubin</div><div class="co">8VC</div><div class="rl">Executive assistant</div><span class="tag t-vc">Venture capital</span></td>
+<td class="c-say"><p class="say">&ldquo;She is the warm path to the partners.&rdquo;</p><p class="ask"><span class="ask-l">Ask</span> Ask her to introduce you to an 8VC partner.</p></td>
+</tr>
+<tr data-s="sathya nellore sampat boldcap general partner hyphenate investor he&#x27;s already a hyphenate investor. ask him to introduce you to others in the room and to his portfolio.">
+<td class="c-ph"><img class="av" src="photos/sathya-nellore-sampat.jpg" alt="Photo of Sathya Nellore Sampat" width="64" height="64" loading="lazy"></td>
+<td class="c-who"><div class="nm">Sathya Nellore Sampat</div><div class="co">BoldCap</div><div class="rl">General partner</div><span class="tag t-insider">Hyphenate investor</span></td>
+<td class="c-say"><p class="say">&ldquo;He&#x27;s already a Hyphenate investor.&rdquo;</p><p class="ask"><span class="ask-l">Ask</span> Ask him to introduce you to others in the room and to his portfolio.</p></td>
+</tr>
+    </tbody>
+  </table><div class="empty" hidden>No partners match that search.</div></div>
+</section>
+
+<footer>
+  <p>Photos come from company team pages, org charts and conference speaker pages, and each was matched on name, role and company. People without a public photo show their initials. Where a LinkedIn profile is known, their name links to it.</p>
+  <p>Talking points are inferred from each company's business model. Treat them as openers to test, not facts about the company's finance team.</p>
+</footer>
+</div>
+
+<script>
+(function(){
+  var q=document.getElementById('q'), btns=[].slice.call(document.querySelectorAll('.seg button')), filt='all';
+  var secs=[].slice.call(document.querySelectorAll('section[data-g]'));
+  function apply(){
+    var term=(q.value||'').trim().toLowerCase();
+    secs.forEach(function(s){
+      var show=filt==='all'||filt===s.dataset.g; s.hidden=!show;
+      var rows=[].slice.call(s.querySelectorAll('tbody tr')), n=0;
+      rows.forEach(function(r){var ok=!term||r.dataset.s.indexOf(term)>-1; r.hidden=!ok; if(ok)n++;});
+      s.querySelector('[data-count]').textContent=n+(n===1?' person':' people')+(term?' match':'');
+      s.querySelector('.empty').hidden=n>0;
+    });
+  }
+  q.addEventListener('input',apply);
+  btns.forEach(function(b){b.addEventListener('click',function(){
+    filt=b.dataset.f; btns.forEach(function(x){x.setAttribute('aria-pressed',x===b?'true':'false');});
+    try{localStorage.setItem('pb-filter',filt);}catch(e){}
+    apply();
+  });});
+  try{var s=localStorage.getItem('pb-filter'); if(s){var b=btns.filter(function(x){return x.dataset.f===s;})[0]; if(b){b.click();}}}catch(e){}
+})();
+</script>
+
+</body>
+</html>
